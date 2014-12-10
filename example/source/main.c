@@ -1,5 +1,5 @@
 #include <3ds.h>
-#include "memory.h"
+#include "textstuff.h"
 
 int main()
 {
@@ -10,7 +10,7 @@ int main()
 	gfxInit();
 	//gfxSet3D(true); // uncomment if using stereoscopic 3D
 
-	char* a = "hello world";
+	char* a = "hello world!";
 	
 	// Main loop
 	while (aptMainLoop())
@@ -28,7 +28,7 @@ int main()
 		// Please note that the 3DS screens are sideways (thus 240x400 and 240x320)
 		u8* fb = gfxGetFramebuffer(GFX_TOP, GFX_LEFT, NULL, NULL);
 		memset(fb, 0, 240*400*3);
-		paint_word(fb, a, 40, 40, 255, 255, 255);
+		tsDrawWord(GFX_TOP, GFX_LEFT, a, 40, 40, 255, 255, 255);
 
 		// Flush and swap framebuffers
 		gfxFlushBuffers();
